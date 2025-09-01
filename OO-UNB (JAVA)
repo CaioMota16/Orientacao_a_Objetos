@@ -70,6 +70,8 @@ public final class Main {
                 }else{
                     System.out.println("Seu triângulo não existe");
                 }
+            default:
+                System.out.println("Até mais...");
             break;
             }
         }
