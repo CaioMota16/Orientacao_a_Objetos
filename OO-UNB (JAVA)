@@ -1,0 +1,76 @@
+import javax.swing.*;
+import java.util.Scanner;
+import java.lang.Math;
+
+public final class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Escolha a figura geométrica desejada  \n" +
+                "1 - Circulo  \n" +
+                "2 - Quadrado  \n" +
+                "3 - Retângulo  \n" +
+                "4 - Trapézio  \n" +
+                "5 - Triângulo \n" +
+                "");
+        int opcao = scanner.nextInt();
+        switch (opcao) {
+            case 1:
+                System.out.println("Informe o raio do círculo: ");
+                int raio = scanner.nextInt();
+                double perimetro = raio*2*Math.PI;
+                double area = Math.pow(raio,2)*Math.PI;
+                System.out.printf("O perímetro do círculo é %.2f e a área é %.2f.", perimetro,area);
+            break;
+            case 2:
+                System.out.println("Informe o lado do quadrado: ");
+                int ladoquadrado = scanner.nextInt();
+                perimetro = 4*ladoquadrado;
+                area = Math.pow(ladoquadrado,2);
+                System.out.printf("O perímetro do quadrado é %.2f e a área é %.2f.", perimetro,area);
+            break;
+            case 3:
+                System.out.println("Informe o primeiro lado do retangulo: ");
+                int lado1retangulo = scanner.nextInt();
+                System.out.println("Informe o segundo lado do retangulo: ");
+                int lado2retangulo = scanner.nextInt();
+                perimetro = 2*lado1retangulo+2*lado2retangulo;
+                area = lado1retangulo*lado2retangulo;
+                System.out.printf("O perímetro do retangulo é %.2f e a área é %.2f.", perimetro,area);
+            break;
+            case 4:
+                System.out.println("Informe a base maior do trapezio: ");
+                int basemaior = scanner.nextInt();
+                System.out.println("Informe a base menor do trapezio: ");
+                int basemenor = scanner.nextInt();
+                System.out.println("Informe a altura do trapezio: ");
+                int alturatrapezio = scanner.nextInt();
+                System.out.println("Informe o lado 1 do trapézio: ");
+                double lado1trapezio = scanner.nextDouble();
+                System.out.println("Informe o lado 2 do trapézio: ");
+                double lado2trapezio = scanner.nextDouble();
+                perimetro = lado1trapezio+lado2trapezio+basemaior+basemenor;
+                area = ((basemaior+basemenor)*alturatrapezio)/2;
+                System.out.printf("O perímetro do trapezio é %.2f e a área é %.2f.", perimetro,area);
+            break;
+            case 5:
+                System.out.println("Informe o lado A do triangulo: ");
+                double ladoATriang = scanner.nextDouble();
+                System.out.println("Informe o lado B do triangulo: ");
+                double ladoBTriang = scanner.nextDouble();
+                System.out.println("Informe o lado C do triangulo: ");
+                double ladoCTriang = scanner.nextDouble();
+                boolean existe;
+                if ((Math.abs(ladoBTriang-ladoCTriang)<ladoATriang && ladoATriang<ladoBTriang+ladoCTriang) &&
+                    (Math.abs(ladoATriang-ladoCTriang)<ladoBTriang && ladoBTriang<ladoATriang+ladoCTriang) &&
+                    (Math.abs(ladoATriang-ladoBTriang)<ladoCTriang && ladoCTriang<ladoATriang+ladoBTriang)){
+                    perimetro = ladoATriang+ladoBTriang+ladoCTriang;
+                    double semiperimetro = perimetro/2;
+                    double areaTriangulo = Math.sqrt(semiperimetro*(semiperimetro-ladoATriang)*(semiperimetro-ladoBTriang)*(semiperimetro-ladoCTriang));
+                    System.out.printf("O perímetro do triangulo é %.2f e a área é %.2f.", perimetro,areaTriangulo);
+                }else{
+                    System.out.println("Seu triângulo não existe");
+                }
+            break;
+            }
+        }
+    }
