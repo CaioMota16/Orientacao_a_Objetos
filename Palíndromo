@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        System.out.println("Digite um texto: ");
+        String frase = sc.nextLine();
+        frase = frase.replaceAll("[\\W_]", "").toLowerCase();
+        boolean ehPalindromo = true;
+        int i = 0;
+        int j = frase.length() - 1;
+        while (i<j){
+            if(frase.charAt(i)!= frase.charAt(j)){
+                ehPalindromo = false;
+                break;
+            }
+            i++;
+            j--;
+        }
+        if (ehPalindromo) {
+            System.out.println("É palíndromo!");
+        } else {
+            System.out.println("Não é palíndromo.");
+        }
+
+    }
+}
