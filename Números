@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.printf("Digite o tamanho do vetor: ");
+        int tamanhoVetor = sc.nextInt();
+        int[] valores = new int[tamanhoVetor];
+        float media = 0;
+        int positivo = 0, negativo = 0, zero = 0, pares = 0, impares = 0;
+        valores = new int[tamanhoVetor];
+        System.out.println("DIgite os valores do vetor: ");
+        for (int i = 0; i<tamanhoVetor ; i++ ){
+            valores[i] = sc.nextInt();
+            media += valores[i];
+            if (valores[i]>0){
+                positivo++;
+            }else if (valores[i]<0) {
+                negativo++;
+            } else{
+                zero++;
+            }
+            if (valores[i]%2==0){
+                pares++;
+            }else {
+                impares++;
+            }
+        }
+
+        media = media/tamanhoVetor;
+        System.out.printf("A média é %.3f", media);
+        System.out.println("\nA quantidade de numeros positivos e:"+positivo);
+        System.out.println("A quantidade de numeros negativos e:"+negativo);
+        System.out.println("A quantidade de numeros zeros e:"+zero);
+        System.out.println("A quantidade de numeros pares e:"+pares);
+        System.out.println("A quantidade de numeros impares e:"+impares);
+    }
+}
